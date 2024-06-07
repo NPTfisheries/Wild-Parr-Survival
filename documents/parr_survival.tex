@@ -1,0 +1,332 @@
+\documentclass[10pt,a4paper,]{article}
+\usepackage{float}
+  \usepackage[]{mathpazo}
+  \usepackage{setspace}
+
+%\usepackage[T1]{fontenc} %RK added
+\usepackage{lmodern} %RK added
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+  \else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+              \fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage{fancybox}
+  \usepackage[unicode=true]{hyperref}
+  \hypersetup{
+    pdfauthor={Ryan N. Kinzer (Research Division, Department of
+Fisheries Resources Management)},
+          pdftitle={Survival Advantage for Natural-origin Summer Parr Reared in a Hatchery Environment},
+            %                pdfborder={0 0 0},
+          breaklinks=true}
+                
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage[style=authoryear-comp,backend=biber, natbib=true,]{biblatex}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\title{Survival Advantage for Natural-origin Summer Parr Reared in a
+Hatchery Environment \vspace{0.5cm}}
+
+\author{\Large \bf{Ryan N.
+Kinzer}\vspace{0.05in} \newline\normalsize\emph{Research Division,
+Department of Fisheries Resources Management}  }
+
+%% MONASH STUFF
+
+%% CAPTIONS
+\RequirePackage{caption}
+\DeclareCaptionStyle{italic}[justification=centering]
+ {labelfont={bf},textfont={it},labelsep=colon}
+\captionsetup[figure]{style=italic,format=hang,singlelinecheck=true}
+\captionsetup[table]{style=italic,format=hang,singlelinecheck=true}
+
+%% FONT
+\usepackage{bm,url}
+
+%% HEADERS AND FOOTERS
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{}\cfoot{}\rfoot{}
+\lhead{\textsf{Summer Parr}} % was title
+\rhead{\textsf{\thepage}}
+\setlength{\headheight}{15pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\sffamily\thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+%% MATHS
+\RequirePackage{bm,amsmath}
+\allowdisplaybreaks
+
+%% GRAPHICS
+\RequirePackage{graphicx}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.8}
+
+%\RequirePackage[section]{placeins}
+
+%% SECTION TITLES
+\RequirePackage[compact,sf,bf]{titlesec}
+\titleformat{\section}[block]
+  {\fontsize{15}{17}\bfseries\sffamily}
+  {\thesection}
+  {0.4em}{}
+\titleformat{\subsection}[block]
+  {\fontsize{12}{14}\bfseries\sffamily}
+  {\thesubsection}
+  {0.4em}{}
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*1}{*0.5}
+
+%% LINE AND PAGE BREAKING
+\sloppy
+\raggedbottom
+\usepackage[bottom]{footmisc}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\brokenpenalty = 10000
+\RequirePackage{microtype}
+
+%% HYPERLINKS
+\RequirePackage{xcolor} % Needed for links
+\definecolor{darkblue}{rgb}{0,0,.6}
+\RequirePackage{url}
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}
+\makeatother
+\hypersetup{
+     citecolor=0 0 0,
+     breaklinks=true,
+     bookmarksopen=true,
+     bookmarksnumbered=true,
+     linkcolor=darkblue,
+     urlcolor=blue,
+     citecolor=darkblue,
+     colorlinks=true}
+
+\usepackage[showonlyrefs]{mathtools}
+
+%% BIBLIOGRAPHY
+
+\makeatletter
+\@ifpackageloaded{biblatex}{}{\usepackage[style=authoryear-comp, backend=biber, natbib=true]{biblatex}}
+\makeatother
+\ExecuteBibliographyOptions{bibencoding=utf8,minnames=1,maxnames=3, maxbibnames=99,dashed=false,terseinits=true,giveninits=true,uniquename=false,uniquelist=false,doi=false, isbn=false,url=true,sortcites=false}
+\DeclareFieldFormat{url}{\texttt{\url{#1}}}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+%\DeclareFieldFormat[book]{url}{}
+%\DeclareFieldFormat[inbook]{url}{}
+%\DeclareFieldFormat[incollection]{url}{}
+%\DeclareFieldFormat[inproceedings]{url}{}
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{shorthandwidth}{#1}
+%\DeclareFieldFormat{extrayear}{}
+% No dot before number of articles
+\usepackage{xpatch}
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+% Remove In: for an article.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryCitekey{\clearfield{month}}
+\makeatletter
+\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
+\makeatother
+\renewcommand*{\finalnamedelim}{%
+  %\ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}% there really should be no funny Oxford comma business here
+  \addspace\&\space}
+
+%%% Change title format
+\usepackage{color,titling,framed}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+
+\pretitle{%
+%
+\begin{textblock}{4}(2,0.8)\includegraphics[height=2.0cm]{NPT.png}\end{textblock}%
+\begin{textblock}{4}(17,0.8)\includegraphics[height=2.0cm]{DFRM.png}\end{textblock}%
+%\begin{textblock}{4}(16.5,0.8)\includegraphics[trim=53 0 0 0, clip=true,height=1.5cm]{NPT.png}\end{textblock}%
+\vspace*{-1.0cm}%-0.6
+
+\LARGE\bfseries}
+\posttitle{\vspace*{0.3cm}\par}
+\preauthor{\large}
+\postauthor{\hfill}
+\predate{\hfill\small}
+\postdate{}
+
+\raggedbottom
+
+\usepackage[australian]{babel}
+\date{June 07, 2024}
+
+
+
+\begin{document}
+
+
+  \vspace*{0cm}
+  \definecolor{shadecolor}{RGB}{255,255,255} %210
+  \begin{snugshade}%\sffamily
+  \maketitle
+  \end{snugshade}\vspace*{0.5cm}
+  \definecolor{shadecolor}{RGB}{248,248,248} %248
+
+\hbox{\vrule height .2pt width 16cm}
+
+%\hbox{\vrule height .2pt width 16cm} % RK added
+
+\setstretch{1.2}
+
+
+\hypertarget{background}{%
+\section{Background}\label{background}}
+
+A proposed conservation strategy for sp/sm Chinook salmon is to collect
+natural-origin parr during the summer months and rear them in a hatchery
+environment until release as smolts the following spring season. The
+assumed advantage of this action is the removal of natural rearing
+mortality during the fall and overwinter period. The aim of this
+exercise is to calculate the expected survival advantage for hatchery
+reared natural-origin parr compared to their natural rearing
+counterparts.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+First, we assume the number of adults surviving to the tributary from
+summer parr is the product of three life-stage survival probabilities.
+The first stage is summer parr surviving to smolt leaving the tributary,
+in other words, overwinter survival (\(\phi_{ow}\)). The second stage
+represents smolt migration survival for fish traveling from the
+tributary to Lower Granite Dam (\(\phi_s\)). The third stage is commonly
+known as a smolt-to-adult return rate (SAR), and here, represents the
+survival of smolts at Lower Granite Dam (LWG) returning as adults to the
+tributary (\(\phi_{SAR}\)). The product of the equation then becomes the
+survival probability of summer parr returning as adults
+(\(\phi_{parr}\)).
+
+\[
+\phi_{parr} = \phi_{ow}*\phi_s*\phi_{SAR}
+\] The relative survival advantage (\(RSA\)) of rearing parr in the
+hatchery environment then becomes the ratio of parr survival
+probabilities for fish reared in the hatchery environment
+(\(\phi^{H}_{parr}\)) to fish reared naturally in the stream
+(\(\phi^{N}_{parr}\)). This concept is similar to the more commonly used
+relative reproductive success metric often produced from genetic
+parentage analyses.
+
+\[
+RSA = \frac{\phi^{H}_{parr}}{\phi^{N}_{parr}}
+\] To calculate the ratio we can substitute estimates of the three
+life-stage survivals for hatchery and natural rearing using our existing
+data, with one exception. We don't directly monitor natural rearing
+overwinter survival (i.e., from parr to smolt within the tributary). To
+indirectly estimate this stage we can use the estimates of natural parr
+and natural smolts surviving to LWG (\(\phi^N_{p}\), \(\phi^N_{s}\))
+from our juvenile PIT-tagging efforts as follows,
+
+\[
+\phi^N_w = \frac{\phi^N_{p}}{\phi^N_{s}}.
+\]
+
+Then, after substituting the above calculations and simplifing the full
+expanded \(RSA\) equation becomes,
+
+\[
+RSA = \frac{\phi^H_{ow}*\phi^H_s*\phi^H_{SAR}}{\phi^N_p*\phi^N_{SAR}}.
+\] We now can go an additional step in determining the success of the
+proposed conservation strategy by solving the above equation for
+\(\phi^H_{ow}\). Wee can then set \(RSA\) to the management desired
+minimum that would indicate success of the program and calculate the
+lowest acceptable hatchery rearing survival that would still yield an
+RSA above the desired minimum.
+
+\[
+MIN(\phi^H_{ow}) =\frac{MIN(RSA)*\phi^N_p*\phi^N_{SAR}}{\phi^H_s*\phi^H_{SAR}}
+\]
+
+\hypertarget{example}{%
+\section{Example}\label{example}}
+
+If we assume the parameter values shown in Table 1 the calculated
+\(RSA\) is 1.92. Thus, if 5,000 natural parr were collected and reared
+in the hatchery environment we would expect approximately 1.92 times
+more adults to return than if the parr reared naturally.
+
+Additionally, if we set \(RSA = 1.5\) as a threshold to success,
+hatchery overwinter survival must be greater than 0.625 to deem the
+program successful.
+
+\begin{longtable}[]{@{}llr@{}}
+\caption{Example parameter values to calculate the relative survival
+advantage (RSA).}\tabularnewline
+\toprule\noalign{}
+Rearing & Parameter & Value \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Rearing & Parameter & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Hatchery & \(\phi^H_{ow}\) & 0.800 \\
+Hatchery & \(\phi^H_{s}\) & 0.600 \\
+Hatchery & \(\phi^H_{SAR}\) & 0.008 \\
+Natural & \(\phi^N_{p}\) & 0.200 \\
+Natural & \(\phi^N_{SAR}\) & 0.010 \\
+\end{longtable}
+
+\printbibliography
+
+\end{document}
